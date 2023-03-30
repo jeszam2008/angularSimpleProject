@@ -1,0 +1,44 @@
+<!-- <app-header [toggle-side-navbar]="toggleSideNavState" (changeSideNavbarState)="toggleSideNavbar($event)"></app-header> -->
+<mat-sidenav-container class="d-flex">
+  <mat-sidenav #drawer mode="side" [opened]="toggleSideNavState">
+    <div class="menu-container">
+      <div class="main-container">
+        <!-- <mat-accordion *ngFor="let x of [ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7]">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> This is the expansion title </mat-panel-title>
+            </mat-expansion-panel-header>
+            <span>This is a summary of the content</span>
+          </mat-expansion-panel>
+        </mat-accordion>  --> 
+        <mat-list>
+          <mat-list-item [ngClass]="{'active': checkPathURL('/customer')}" (click)="redirectPage('/customer')">Customer</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item [ngClass]="{'active': checkPathURL('/product')}" (click)="redirectPage('/product')">Products</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item [ngClass]="{'active': checkPathURL('/shipper')}" (click)="redirectPage('/shipper')">Shippers</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item [ngClass]="{'active': checkPathURL('/supplier')}" (click)="redirectPage('/supplier')">Suppliers</mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </div>
+      <div class="footer-container">
+        <mat-divider></mat-divider>
+        <div class="action"> 
+            <button class="btn btn-outline-success" (click)="logout()">
+                <span class="fa fa-sign-out"></span> 
+                <span> Log Out </span>
+            </button>
+            <button class="btn btn-outline-success">
+                <span class="fa fa-cog"></span> 
+                <span> Settings </span>
+            </button>
+        </div> 
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-container *ngTemplateOutlet="mainContentTemplate"></ng-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

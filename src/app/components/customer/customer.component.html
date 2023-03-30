@@ -1,0 +1,92 @@
+<app-header [toggle-side-navbar]="toggleSideNavState" (changeSideNavbarState)="toggleSideNavbar($event)"></app-header>
+<app-side-nav-bar [is-open]="toggleSideNavState" [main-content]="mainContent"></app-side-nav-bar>
+
+<ng-template #mainContent>
+    <div class="container-fluid">
+        <!-- <div class="d-flex justify-content-between">
+            <div><h1>List of Customers</h1></div>
+            <div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <button class="btn btn-success" type="button">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div><button class="btn btn-sm mt-1 btn-success" (click)="openDialog()">Open Modal</button></div>
+        </div> -->
+        <div class="row mt-3 mb-3">
+            <div class="col-lg-6">
+                <h1>List of Customers</h1>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-between">
+                <div class="col-11">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchKeyword" (ngModelChange)="searchFilter(searchKeyword)">
+                        <button class="btn btn-success" type="button">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- <div>
+                    <button class="btn btn-sm btn-success text-right" (click)="openDialog()">
+                        <span class="small">Modal</span>
+                    </button>
+                </div> -->
+                <div class="">
+                    <button class="btn btn-sm btn-success text-right" matTooltip="Add Customer" (click)="addCustomer()">
+                        <span class="small">
+                            <i class="fa fa-plus"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <alert-message></alert-message>
+            </div>
+        </div> 
+        <div class="d-flex" *ngIf="(customers$ | async) as customers">
+            <div class="w-50" *ngIf="customers.length > 0">
+                <ul class="list-group" *ngFor="let customer of customers">
+                    <li class="d-flex justify-content-between list-group-item list-group-item-success"> 
+                        <div><span class="h6">Customer ID: {{customer.CustomerID}}</span></div>
+                        <div class="d-flex">
+                            <div class="cursor-pointer" (click)="updateCustomer(customer)" matTooltip="Update Customer"><span class="h6 text-primary"><i class="fa fa-edit"></i></span></div> 
+                            <div> &nbsp; &nbsp; </div>
+                            <div class="cursor-pointer" (click)="deleteCustomer(customer.CustomerID || '', customer.CustomerName || '')" matTooltip="Remove Customer"><span class="h6 text-danger"><i class="fa fa-trash"></i></span></div>
+                        </div> 
+                    </li>
+                    <li class="list-group-item">
+                        <div><b>Customer Name:</b> {{customer.CustomerName}}</div>
+                        <div><b>Address:</b> {{customer.Address}}</div>
+                        <div><b>Country:</b> {{customer.Country}}</div>
+                    </li>
+                    <li><br></li>
+                </ul>
+            </div> 
+            <div> &nbsp; &nbsp; &nbsp; </div>
+            <div class="w-50" *ngIf="customers.length > 0">
+                <ul class="list-group" *ngFor="let customer of customers">
+                    <li class="d-flex justify-content-between list-group-item list-group-item-success"> 
+                        <div><span class="h6">Customer ID: {{customer.CustomerID}}</span></div>
+                        <div class="d-flex">
+                            <div class="cursor-pointer" (click)="updateCustomer(customer)" matTooltip="Update Customer"><span class="h6 text-primary"><i class="fa fa-edit"></i></span></div> 
+                            <div> &nbsp; &nbsp; </div>
+                            <div class="cursor-pointer" (click)="deleteCustomer(customer.CustomerID || '', customer.CustomerName || '')" matTooltip="Remove Customer"><span class="h6 text-danger"><i class="fa fa-trash"></i></span></div>
+                        </div> 
+                    </li>
+                    <li class="list-group-item">
+                        <div><b>Customer Name:</b> {{customer.CustomerName}}</div>
+                        <div><b>Address:</b> {{customer.Address}}</div>
+                        <div><b>Country:</b> {{customer.Country}}</div>
+                    </li>
+                    <li><br></li>
+                </ul>
+            </div> 
+            <div class="w-100" *ngIf="customers.length == 0">
+                <h1 class="text-center">No data found</h1>
+            </div>
+        </div> 
+    </div> 
+</ng-template> 
+ 

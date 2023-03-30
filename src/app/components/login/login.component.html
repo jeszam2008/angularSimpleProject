@@ -1,0 +1,28 @@
+<div class="bg-container">
+    <div class="login-container">
+        <!-- <alert-message type="alert-success" message="<b>Successfully</b> binded." [is-close]="true"></alert-message> -->
+        <div class="logo-container">
+            <div class="img-container">
+                <!-- <img class="img-fluid rounded-circle" src="../../../assets/img-login.png"> -->
+            </div>
+        </div>
+        <div class="form-container">
+            <alert-message></alert-message>
+            <form name="loginForm" novalidate> 
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="username" [(ngModel)]="login.Username" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="login.Password" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    <button type="button" class="btn btn-success w-100" (click)="loginSubmit(login.Username, login.Password)">Login</button>
+                </div>
+                <!-- <div class="mb-3">
+                    <button type="button" class="btn btn-primary" (click)="promptAlert('alert-success', 'Hello World', true, 5000, true)">Prompt Alert</button>
+                </div> -->
+                
+            </form>
+        </div>
+    </div>
+</div>

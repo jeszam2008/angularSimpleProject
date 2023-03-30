@@ -1,0 +1,58 @@
+.mat-drawer-container {
+    display: flex;
+    height: calc(100% - 4rem);
+}
+
+.mat-drawer-container .mat-drawer-content {
+    width: 100%;
+}
+
+.mat-drawer.mat-drawer-side {
+    width: 250px;
+    max-width: 250px;  
+}
+
+.mat-drawer.mat-drawer-side .menu-container { 
+    position: relative;
+    height: 100%;
+}
+
+.mat-drawer.mat-drawer-side .menu-container .main-container {
+    height: 70%;
+    overflow: auto;
+}
+
+.mat-drawer.mat-drawer-side .menu-container .main-container .mat-accordion .mat-expansion-panel:last-of-type,
+.mat-drawer.mat-drawer-side .menu-container .main-container .mat-accordion .mat-expansion-panel:first-of-type {
+    border-radius: unset;
+} 
+
+.mat-drawer.mat-drawer-side .menu-container .footer-container {
+    height: 30%;
+    overflow: auto;
+}
+
+.mat-drawer.mat-drawer-side .menu-container .footer-container .action {
+    margin: 1rem; 
+    margin-top: 2rem;
+}
+
+.mat-drawer.mat-drawer-side .menu-container .footer-container .action .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.menu-container .main-container mat-list mat-list-item {
+    cursor: pointer; 
+}
+
+.menu-container .main-container mat-list mat-list-item:hover {
+    /* color: #fff; */
+    background-color: #f5f7f5;
+}
+
+.menu-container .main-container mat-list mat-list-item.active {
+    /* color: #fff; */
+    background-color: #cae7da;
+}

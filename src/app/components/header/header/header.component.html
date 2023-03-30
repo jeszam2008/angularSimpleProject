@@ -1,0 +1,16 @@
+<div class="progress-bar-container" *ngIf="(httpLoadingProgress.isLoading | async)">
+    <mat-progress-bar color="warn" mode="determinate" [value]="httpLoadingProgress.getProgressValue()"></mat-progress-bar>
+</div>
+<mat-toolbar class="bg-green" color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleSideNavbar(toggleSideNavbarState)">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Angular Project</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>

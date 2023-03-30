@@ -1,0 +1,14 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.progress-bar-container {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+
+.mat-toolbar.bg-green {
+  background-color: #138D75;
+}

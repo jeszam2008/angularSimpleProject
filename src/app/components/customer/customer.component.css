@@ -1,0 +1,15 @@
+ul li { 
+    list-style-type: none;
+}
+  
+.add-customer-modal .mat-dialog-container {
+    padding-bottom: 1rem;  
+}
+
+.add-customer-modal .mat-dialog-actions {
+    margin-top: 1rem; 
+} 
+
+.add-customer-modal .mat-dialog-actions {
+    justify-content: center;
+}

@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between"> 
+    <div><h2 mat-dialog-title>Add a Customer</h2></div> 
+    <div><button class="btn btn-close" (click)="closeDialog(true, false, null)"></button></div> 
+</div>  
+<form name="addCustomerForm" novalidate (ngSubmit)="addCustomer(customer)"> 
+    <mat-dialog-content> 
+        <div class="mb-3">
+            <alert-message></alert-message>
+        </div>
+        <div class="mb-3">
+            <input type="text" maxlength="100" class="form-control" name="customerID" [(ngModel)]="customer.CustomerID" placeholder="Customer ID">
+        </div>
+        <div class="mb-3">
+            <input type="text" maxlength="100" class="form-control" name="customerName" [(ngModel)]="customer.CustomerName" placeholder="Customer Name">
+        </div>
+        <div class="mb-3">
+            <input type="text" maxlength="100" class="form-control" name="contactName" [(ngModel)]="customer.ContactName" placeholder="Contact Name">
+        </div>
+        <div class="mb-3">
+            <input type="text" maxlength="100" class="form-control" name="Address" [(ngModel)]="customer.Address" placeholder="Address">
+        </div>
+        <div class="mb-3">
+            <input type="text" maxlength="100" class="form-control" name="city" [(ngModel)]="customer.City" placeholder="City">
+        </div>
+        <div class="mb-3">
+            <input type="text" maxlength="100" class="form-control" name="postalCode" [(ngModel)]="customer.PostalCode" placeholder="Postal Code">
+        </div>
+        <div class="mb-3">
+            <input type="text" maxlength="100" class="form-control" name="country" [(ngModel)]="customer.Country" placeholder="Country">
+        </div>
+        <!-- <div class="mb-3">
+            <button type="submit" class="btn btn-success w-100">Add Customer</button>
+        </div>  -->
+    </mat-dialog-content> 
+    <mat-dialog-actions class="mb-2"> 
+        <button type="submit" class="btn btn-success w-100">Add Customer</button>
+    </mat-dialog-actions>
+</form>
