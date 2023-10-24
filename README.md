@@ -26,9 +26,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## For Backend server side (server folder)
+## To run the frontend side (client side)
+
+Run this command:
+
+- npm i
+- ng serve
+
+## To run for Backend server side (server folder)
 
 Run this command:
 
 - npm i
 - npm run serve
+
+## For database reference
+
+- Go to `db` folder and import the sql file
